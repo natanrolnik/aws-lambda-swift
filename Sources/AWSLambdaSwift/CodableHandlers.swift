@@ -2,6 +2,7 @@ import Foundation
 
 private func input<T: Decodable>(from inputData: Data) throws -> T {
     let jsonDecoder = JSONDecoder()
+    log("Input is: \(String(data: inputData, encoding: .utf8) ?? "")")
     guard let input = try? jsonDecoder.decode(T.self, from: inputData) else {
         throw RuntimeError.invalidData
     }
